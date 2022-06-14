@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>index.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="javascript%E6%95%99%E7%A8%8B">JavaScript教程</h1>
+<p>2022年随着疫情的发展经济每况愈下各行各业受到严重打击，计算机行业已经成为了受影响较小的行业之一。学习一门编程语言是入门计算机行业的必备，JavaScript做为前端技术的基础是很值得学习的。</p>
+<h2 id="1-%E5%9F%BA%E7%A1%80">1 基础</h2>
+<p>在基础环节我们只会学习最基础的概念，并不会考虑很多特殊情况，您只需要学习到最简单的JavaScript知识就可以了。</p>
+<h3 id="11-%E4%BB%A3%E7%A0%81%E7%9A%84%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E5%92%8C%E8%B0%83%E8%AF%95">1.1 代码的运行环境和调试</h3>
+<p>很多人在学习编程时会被繁琐的运行环境配置劝退，JavaScript的运行环境格外简单，只要是有浏览器在任何设备上都可以运行。</p>
+<p>打开浏览器这里推荐使用chrome或fireFox，按下F12键你可以看到弹出了一个窗口</p>
+<p><img src="img/01.png" alt="alt"></p>
+<p>这个窗口就是浏览器自带的调试器，在这里您可以进行代码的调试。使用方法很简单，在这里只介绍console（控制台）菜单其他菜单后续教程中接受。</p>
+<p>点击console您就可以在控制台中输入JavaScript代码并且按下回车键执行它。</p>
+<h3 id="12-%E5%8F%98%E9%87%8F">1.2 变量</h3>
+<h4 id="121-%E5%8F%98%E9%87%8F%E7%9A%84%E5%88%9B%E5%BB%BA">1.2.1 变量的创建</h4>
+<p>在控制台中输入 <code>let name = &quot;JavaScript&quot;</code> 按下回车</p>
+<p>如图：</p>
+<p><img src="img/02.png" alt="alt"></p>
+<p>这样您就通过关键字 <code>let</code> 创建了一个名为 <code>name</code> 的变量，变量中储存的值为 <code>&quot;JavaScript&quot;</code> 注意 引号代表它是一个 <em><strong>字符串</strong></em> 类型的变量。</p>
+<p>在JavaScript中有很多关键字，代表着一些特殊的意义比如刚才用到的 <code>let</code> 当我们创建变量时一定要注意避开他们否则将出现错误。</p>
+<p>要使用变量非常简单，只要输入变量名就可以使用它了。</p>
+<p>在控制台中输入 <code>name</code></p>
+<p><img src="img/03.png" alt="alt"></p>
+<p>控制台就使用了这个变量并将变量的值打印了出来</p>
+<h4 id="122-%E5%8F%98%E9%87%8F%E7%9A%84%E7%B1%BB%E5%9E%8B">1.2.2 变量的类型</h4>
+<p>我们现在创建的名为 <em><strong>name</strong></em> 的变量是一个 <em><strong>字符串</strong></em> 类型的变量，顾名思义它是一串字。</p>
+<p>在JavaScript中数据类型是自动判断的根据你输入的值将会自动判断数据类型。JavaScript中主要有8种数据类型分别为：string（字符串）、number（数字）、boolean（布尔值）、null（空）、undefined（未定义）、array（数组）、object（对象）、function（函数）。</p>
+<p>其中数组，对象，函数会在后边的教程中详细介绍，我们现来了解最常用的三种类型 string、number、boolean。</p>
+<p><em><strong>string</strong></em></p>
+<p>string字符串类型，定义一个字符串变量使用双引号（&quot;）或单引号（'）将内容包裹起来就构成了一个字符串比如 <code>let name = &quot;JavaScript&quot;</code>或 <code>let name = 'JavaScript'</code></p>
+<p><em><strong>number</strong></em></p>
+<p>定义数字类型非常简单你只需要输入数字就可以了，比如<code>let ten = 10</code>这样你就定义了一个变量名为 <em><strong>ten</strong></em> 值为 <em><strong>10</strong></em> 的数字变量。</p>
+<p><em><strong>boolean</strong></em></p>
+<p>boolean 布尔类型只有两个值 <em><strong>true</strong></em> 和 <em><strong>false</strong></em>，其中  <em><strong>true</strong></em> 代表真 <em><strong>false</strong></em> 代表假 ，boolean类型主要在判断中出现。</p>
+<p>定义布尔类型变量 <code>let isTrue = true</code> 或 <code>let isFalse = false</code></p>
+<p><em><strong>null</strong></em></p>
+<p>null代表什么都没有 其变量值即为 <em><strong>null</strong></em></p>
+<p><em><strong>undefined</strong></em></p>
+<p>undefined代表什么都没有 其变量值即为 <em><strong>undefined</strong></em></p>
+<p><em><strong>array</strong></em></p>
+<p>数组我们会在后面介绍其详细内容</p>
+<p><em><strong>ojbect</strong></em></p>
+<p>对象我们会在后面介绍其详细内容</p>
+<p><em><strong>function</strong></em></p>
+<p>函数我们会在后面介绍其详细内容</p>
+<h3 id="12-%E9%80%BB%E8%BE%91">1.2 逻辑</h3>
+<p>在代码中逻辑是最烧脑的一部分也是代码中最关键的一部分，如果想要实现某一些功能那么逻辑是绝对少不了的。</p>
+<p>在第一节里面我们学习了变量的创建，当变量创建完成后这些变量便会被后面的代码所使用（如果一个变量创建后不会被使用，那么创建它便是多余的），而使用这些代码的方式便被称为代码逻辑。</p>
+<h4 id="121-%E8%BF%90%E7%AE%97">1.2.1 运算</h4>
+<p>运算是通过一些方式获取到我们想要的值，比如将两个数字类型的变量相乘就是一种运算。</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> one = <span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> two = <span class="hljs-number">2</span>
+<span class="hljs-keyword">let</span> three = one + two
+</div></code></pre>
+<p>猜猜 <em><strong>three</strong></em> 变量的值为多少</p>
+<p><em><strong>算术运算符</strong></em></p>
+<p>算术运算符的作用主要用于数字的计算</p>
+<p><strong>加号运算符</strong></p>
+<p><code>+</code> 运算符代表将两个数字类型变量相加，将两个字符串类型变量拼接。如果是一个字符串类型和另一个其他类型相 <code>+</code> 效果也会为拼接。</p>
+<p>$variable = x + y$</p>
+<p>如：</p>
+<pre class="hljs"><code><div> <span class="hljs-keyword">let</span> str1 = <span class="hljs-string">"Java"</span>
+ <span class="hljs-keyword">let</span> str2 = <span class="hljs-string">"Script"</span>
+ <span class="hljs-keyword">let</span> num1 = <span class="hljs-number">1</span>
+ <span class="hljs-keyword">let</span> num2 = <span class="hljs-number">2</span>
+</div></code></pre>
+<p><code>num1 + num2</code> 的值为 <code>3</code></p>
+<p><code>str1 + str2</code> 的值为 <code>&quot;JavaScript&quot;</code></p>
+<p><code>str1 + num1</code> 的值为 <code>&quot;Java1&quot;</code> <strong>注意</strong> 在这里数字类型的 <code>1</code> 被隐式转换为字符串类型并且拼接到了一起，在使用 <code>+</code> 号时要格外注意这个问题。</p>
+<p><code>++</code> 两个加号代表在数字本身基础上加1</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> num = <span class="hljs-number">1</span>
+++num
+<span class="hljs-comment">//num 值为 2</span>
+</div></code></pre>
+<p><code>+=</code> 代表在自身基础上加上某一个值，等价于 <code>x = x + y</code></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> num = <span class="hljs-number">1</span>
+num += <span class="hljs-number">3</span>+<span class="hljs-number">1</span>
+</div></code></pre>
+<p>num 最终等于 5</p>
+<p><strong>减法运算符</strong></p>
+<p><code>-</code> 运算符代表将两个数字相减，如果不是数字类型的话讲返回 <code>NaN</code> （not a number）</p>
+<p>$variable = x - y$</p>
+<p><code>let num = 2 - 1 </code> num的值为1</p>
+<p><code>--</code> 两个减号代表在数字本身基础上减1</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> num = <span class="hljs-number">1</span>
+--num
+<span class="hljs-comment">//num 值为 0</span>
+</div></code></pre>
+<p><code>-=</code> 代表在自身基础上<strong>减</strong>某一个值，等价于<code>x = x - y</code></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> num = <span class="hljs-number">4</span>
+num -= <span class="hljs-number">2</span><span class="hljs-number">-1</span>
+</div></code></pre>
+<p>num 最终等于 3</p>
+<p><strong>乘法运算符</strong></p>
+<p><code>*</code> 运算符代表将两个数字<strong>相乘</strong>，如果不是数字类型的话讲返回 <code>NaN</code> （not a number）</p>
+<p>$variable = x * y$</p>
+<p><code>let num = 5 * 4</code> num的值为20</p>
+<p><code>**</code> 两个<code>*</code>代表<strong>阶乘</strong></p>
+<p><code>let num = 4**2</code> num的值为 $4^2$ = 16</p>
+<p><code>*=</code>代表在自身基础上<strong>乘</strong>某一个值，等价于 <code>x = x*y</code></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> num = <span class="hljs-number">4</span>
+num *= <span class="hljs-number">5</span>
+</div></code></pre>
+<p>num 最终等于 20</p>
+<p><strong>除法运算符</strong></p>
+<p><code>/</code> 运算符代表将两个数字<strong>相除</strong>，如果不是数字类型的话讲返回 <code>NaN</code> （not a number）</p>
+<p>$variable = x / y$</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> num = <span class="hljs-number">4</span> / <span class="hljs-number">2</span>
+<span class="hljs-comment">//num 值为 2</span>
+</div></code></pre>
+<p><code>/=</code>代表在自身基础上<strong>除</strong>某一个值，等价于 <code>x = x/y</code></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> num = <span class="hljs-number">4</span>
+num /= <span class="hljs-number">2</span>
+</div></code></pre>
+<p>num 最终等于 2</p>
+<p><strong>模除运算符</strong></p>
+<p><code>%</code> 运算符代表将两个数字<strong>模除</strong>（只保留余数），如果不是数字类型的话讲返回 <code>NaN</code> （not a number）</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> num = <span class="hljs-number">5</span> % <span class="hljs-number">2</span>
+<span class="hljs-comment">//num 值为 1</span>
+</div></code></pre>
+<p><code>%=</code>代表在自身基础上<strong>模除</strong>某一个值，等价于 <code>x = x%y</code></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> num = <span class="hljs-number">5</span>
+num %= <span class="hljs-number">2</span>
+</div></code></pre>
+<p>num 最终等于 1</p>
+<h4 id="122-if-%E5%92%8C-else">1.2.2 if 和 else</h4>
+<p>if在英语中的意思是如果，它的使用离不开我们上一节讲到的boolean布尔类型</p>
+
+</body>
+</html>
